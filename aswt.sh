@@ -2,7 +2,7 @@
 set -e
 
 ASWT_HOST="a0d7b954-ssh"
-ASWT_URL=https://github.com/zamolxe/homeassistant-aswt/raw/refs/heads/main/awst.sh
+ASWT_URL=https://github.com/zamolxe/homeassistant-aswt/raw/refs/heads/main/aswt.sh
 ASWT_PATH=/config/aswt
 SSH_ARGS=(
   -i ${ASWT_PATH}/aswt.key
