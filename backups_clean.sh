@@ -6,6 +6,11 @@ KEEP_CORE=5
 KEEP_ADDON=5
 
 # DO NOT EDIT BELOW
+SCRIPT_PATH=$(dirname $0)
+SCRIPT_NAME=$(basename $0)
+SCRIPT_LOG=${SCRIPT_PATH}/${SCRIPT_NAME%.sh}.log
+
+(
 KEEP_FULL=$((KEEP_FULL+1))
 KEEP_CORE=$((KEEP_CORE+1))
 KEEP_ADDON=$((KEEP_ADDON+1))
@@ -35,3 +40,4 @@ for ITEM in ${REMOVE_LIST[@]}; do
     [ ${DRY_RUN:-0} -eq 0 ] && _result=$(ha --raw-json backups remove ${ITEM} | jq -r '.result')
     echo ${_result:-dry_run}
 done
+) > "${SCRIPT_LOG}"
